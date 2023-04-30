@@ -3,6 +3,8 @@ import FormInput from "../form-input/form-input.component";
 import "./sign-in-form.styles.scss";
 import Button from "../button/button.component";
 
+// import { UserContext } from "../../contexts/user.context";
+
 import { 
   signInWithGooglePopup, 
   createUserDocumentFromAuth,
@@ -18,25 +20,26 @@ const SignInForm = () => {
   const [ formFields, setFormFields ] = useState(defaultFormFields);
   const { email, password } = formFields;
 
-  console.log(formFields);
 
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
   };
 
   const signInWithGoogle = async () => {
-    const { user } = await signInWithGooglePopup();
-    await createUserDocumentFromAuth(user);
+    await signInWithGooglePopup();
+    
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     
-    try{
-      const response = await signInAuthUserWithEmailAndPassword(email, password);
-      console.log(response);
+    try {
+      await signInAuthUserWithEmailAndPassword(
+        email, 
+        password
+      );
       resetFormFields();
-    }catch(error){
+    } catch(error){
       switch (error.code) {
         case "auth/wrong-password":
           alert("incorrect password for email");
@@ -88,5 +91,5 @@ const SignInForm = () => {
       </form>
     </div>
   )
-}
-export default SignInForm
+};
+export default SignInForm;
