@@ -117,18 +117,18 @@ export const CartProvider = ({children}) => {
       }));
   };
 
-  const addItemToCart = (productToAdd) => {
-    const newCartItems = addCartItem(cartItems, productToAdd);
-    updateCartItemsReducer(newCartItems);
-  };
-  const removeItemToCart = (cartItemToRemove) => {
-    const newCartItems = removeCartItem(cartItems, cartItemToRemove);
-    updateCartItemsReducer(newCartItems);
-  };
-  const clearItemFromCart = (cartItemToClear) => {
-    const newCartItems = clearCartItem(cartItems, cartItemToClear);
-    updateCartItemsReducer(newCartItems);
-  };
+  // const addItemToCart = (productToAdd) => {
+  //   const newCartItems = addCartItem(cartItems, productToAdd);
+  //   updateCartItemsReducer(newCartItems);
+  // };
+  // const removeItemToCart = (cartItemToRemove) => {
+  //   const newCartItems = removeCartItem(cartItems, cartItemToRemove);
+  //   updateCartItemsReducer(newCartItems);
+  // };
+  // const clearItemFromCart = (cartItemToClear) => {
+  //   const newCartItems = clearCartItem(cartItems, cartItemToClear);
+  //   updateCartItemsReducer(newCartItems);
+  // };
 
   const setIsCartOpen = (bool) => {
     dispatch(
